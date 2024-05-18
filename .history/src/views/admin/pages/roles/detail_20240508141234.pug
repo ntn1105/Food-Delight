@@ -1,0 +1,15 @@
+extends ../../layout/defaut.pug
+
+block main 
+    if(account.title)
+        h1(class="mb-4") #{account.title}
+
+    if(account.description)
+        div(class="mb-4") #{account.description}
+
+    a(
+        href=`${prefixAdmin}/products-category/edit/${record.id}`
+        class="btn btn-warning"
+    ) Chỉnh sửa
+    script(src="/admin/js/products-category.js")        
+     

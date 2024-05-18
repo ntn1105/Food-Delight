@@ -1,0 +1,36 @@
+extends ../../layout/defaut.pug
+
+block main 
+    if(account.title)
+        h1(class="mb-4") #{account.title}
+
+    if(account.price)
+        div(class="mb-4") Giá: <b>#{account.price}$</b>
+    
+    if(account.thumbnail)
+        div(class="mb-4")
+            img(
+                src=account.thumbnail 
+                style= "width :100px"
+            )
+
+    if(account.status)
+        div(class="mb-4") 
+            span Trạng thái: 
+                if(account.status=="active")
+                    span(class="badge badge-success") Hoạt động
+                else 
+                    span(class="badge badge-danger") Dừng hoạt động
+    
+    if(account.position)
+        div(class="mb-4") Vị trí: <b>#{account.position}</b>
+
+    if(account.description)
+        div(class="mb-4") #{account.description}
+
+    a(
+        href=`${prefixAdmin}/products-category/edit/${account.id}`
+        class="btn btn-warning"
+    ) Chỉnh sửa
+    script(src="/admin/js/products-category.js")        
+     

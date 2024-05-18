@@ -1,0 +1,97 @@
+extends ../../layout/defaut.pug
+
+block main
+    // search form
+    form(action="" id="search-form")
+      input(type="search" placeholder="search here..." name="" id="search-box")
+      label(for="search-box" class="fas fa-search")
+      i.fas.fa-times(id="close")
+
+    // home section starts
+    section.home(id="home")
+      .swiper.home-slider
+        .swiper-wrapper.wrapper
+          .swiper-slide.slide
+            .content
+              span món ăn đặc biệt của chúng tôi
+              h3 mì cay
+              p Món ăn này rất ngon tôi rất thích nó và tôi sẽ tự nấu cho cả nhà mình cùng ăn.
+              a(href="#" class="btn") order now
+            .image
+              img(src="img/img1_home.png" alt="")
+        .swiper-pagination
+
+    // home section ends
+
+    // menu section starts
+    section.menu(id="menu")
+      h3.sub-heading món ăn của chúng tôi
+      h1.heading món ăn phổ biến
+
+      .box-container
+        each food in foods
+          .box
+            a(href="#" class="fas fa-heart")
+            a(href="#" class="fas fa-eye")
+            img(src=`img/img${index}_dish.png` alt="")
+            h3 #{food.title}
+            .stars
+              i(class="fas fa-star")
+              i(class="fas fa-star-half-alt")
+            span #{food.description}
+            a(href="#" class="btn") add to cart
+            img(
+                  src=food.thumbnail
+                  alt=food.title
+                  width='100px'
+                  height='auto'
+              )
+
+    // menu section ends
+
+    // video section starts
+    section.video(id="video")
+      .video_container
+        each val, index in [0]
+          .row
+            .col-lg-1
+              .sec-title
+                h2.h2_title Discover our 
+                  span restaurant story
+                .sec-title-shape
+                p Cơm gà, một món ăn truyền thống của nhiều nền văn hóa Á Đông, là một sự kết hợp tuyệt vời giữa gà nướng hoặc gà hấp thơm ngon và cơm trắng mềm mại.
+
+          .row
+            .col-lg-2.m-auto
+              .about-video
+                .about-video-img(style=`background-image: url(img/video/bgr_video${index}.jpg)`)
+                .play-btn-wp
+                  a(href=`img/video/video${index}.mp4` data-fancybox="video" class="play-btn")
+                    i(class="fa-solid fa-play fa-beat" style="color: #63E6BE;")
+                  span Xem công thức
+
+    // video section ends
+
+    // feedback section starts
+    section.feedback(id="feedback")
+      h3.sub-heading customer's feedback
+      h1.heading what they say
+
+      .swiper.feedback-slider
+        .swiper-wrapper
+          each val, index in [1]
+            .swiper-slide.slide
+              i.fas.fa-quote-right
+              .user
+                img(src=`/img/avt${index}.jpeg` alt="")
+                .user-info
+                  h3 Thanh Nhan
+                  .stars
+                    i(class="fas fa-star")
+                    i(class="fas fa-star")
+                    i(class="fas fa-star")
+                    i(class="fas fa-star")
+                    i(class="fas fa-star-half-alt")
+              p Món ăn này thật sự ấn tượng! Từ cách kết hợp nguyên liệu đến cách chế biến, mọi thứ đều hoàn hảo. Hương vị độc đáo và tinh tế, tạo nên một trải nghiệm ẩm thực không thể quên. Đáng để thử và khám phá!
+
+    // feedback section ends

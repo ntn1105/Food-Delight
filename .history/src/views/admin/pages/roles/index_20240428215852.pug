@@ -1,0 +1,22 @@
+extends ../../layout/defaut.pug
+
+
+block main 
+    +alert-success(5000)
+            
+
+    h1 Nhóm quyền
+
+    .card.mb-3 
+        .card-header Bộ lọc và Tìm kiếm 
+        .card-body
+            .row 
+                .col-8
+                .col-4.text-right 
+                    a(
+                        href=`${prefixAdmin}/roles/create` 
+                        class="btn btn-sm ml-1 btn-outline-success"
+                    ) Trash
+    
+                .col-6 
+                    +form-search(keyword)

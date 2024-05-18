@@ -1,0 +1,8 @@
+extends ../../layout/defaut.pug
+
+block main 
+    if(product.title)
+        h1(class=mb-4) #{product.title}
+
+    script(src="/admin/js/products.js")        
+     

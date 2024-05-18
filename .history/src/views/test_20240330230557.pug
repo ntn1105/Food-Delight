@@ -1,0 +1,9 @@
+extends layout/main.pug
+include mixins/box-head.pug
+
+block main 
+    +box-head('trang test','đây là dòng mô tả trang test')
+
+    ul 
+        each item in Samphams 
+            li #{Samphams.name}

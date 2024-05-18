@@ -1,0 +1,16 @@
+.sider
+    .inner-menu 
+        ul 
+            li
+                a(href=`${prefixAdmin}/dashboard`) Tổng quan 
+            if(role.permission.includes("products-category_view"))
+                li 
+                    a(href=`${prefixAdmin}/products-category`) Danh mục sản phẩm
+            li 
+                a(href=`${prefixAdmin}/products`) Sản phẩm
+            li 
+                a(href=`${prefixAdmin}/roles`) Nhóm quyền
+            li 
+                a(href=`${prefixAdmin}/roles/permissions`) Phân quyền
+            li 
+                a(href=`${prefixAdmin}/accounts`) Danh sách tài khoản
